@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+  <form-beans >
+    <form-bean name="loginHeadForm" type="com.hb.struts.form.LoginHeadForm" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards >
+    <forward name="err" path="/err.jsp" />
+    
+
+  </global-forwards>
+
+  <action-mappings >
+    <action
+      attribute="loginHeadForm"
+      input="/WEB-INF/login.jsp"
+      name="loginHeadForm"
+      path="/upandLoad"
+      scope="request"
+      type="com.hb.struts.action.UpandLoadAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="success" path="/success.jsp" />
+    </action>
+    <action
+      path="/userList"
+      type="com.hb.struts.action.UserListAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="toShowuserj" path="/showuserlist.jsp" />
+    </action>
+    <action
+      input="/showuserlist.jsp"
+      path="/download"
+      type="com.hb.struts.action.DownloadAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="back" path="/showuserlist.jsp" />
+    </action>
+
+
+
+
+  </action-mappings>
+
+  <message-resources parameter="com.hb.struts.ApplicationResources" />
+</struts-config>
+
