@@ -57,6 +57,7 @@ public class DownloadAction extends Action {
 		}
 		
 		//设置响应头，告诉浏览器有文件下载。
+		//
 		response.setContentType("text/html;charset=utf-8");
 		try {
 			response.setHeader("Content-Disposition", "attachment;filename="+java.net.URLEncoder.encode(user.getSourcefilename(), "utf-8"));
